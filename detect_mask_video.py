@@ -62,11 +62,14 @@ while True:
     for(box,pred) in zip(locs,preds):
         (startX,startY,endX,endY) = box
         (mask, withoutMask) = pred
-        if( mask > withoutMask):
+        if( 2*mask > withoutMask):
             label = " Mask"
         else:
             label = " NM"
-        color = (0, 255, 0) if label == "Mask" else (0, 0, 255)
+        if (label == "Mask"):
+            color = (0, 255, 0)
+        else:
+            color = (0, 255, 0)
         label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
         cv2.putText(frame, label, (startX, startY - 10),cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
         cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)    
@@ -75,20 +78,54 @@ while True:
 	# show the output frame
     if key == ord("q"):
         break
-    if (mask> withoutMask):
+    if ( withoutMask > 2*mask):
         mail = 1
     else:
-        mail =0
-		
-	
-    
-	
-
-	# if the `q` key was pressed, break from the loop
-	
-
+        mail = 0
 # do a bit of cleanup
-if (mail==0):
-    print("No mask Detected")
+from firebase import firebase
+
+firebase = firebase.FirebaseApplication('https://mask-detection-283520.firebaseio.com/', None)
+print(withoutMask)
+print(2*mask)
+if (mail==1):
+    firebase.put('/mask-detection-283520/User-S2','Status',True)
+else:
+    firebase.put('/mask-detection-283520/User-S2','Status',False)
 cv2.destroyAllWindows()
 vs.stop()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
