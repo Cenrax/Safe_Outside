@@ -10,7 +10,7 @@ This is an tensor-flow and computer vision based model on detection of mask from
 
 ## covid-social-distancing-detection
 
-This is the second part of the project. For running the project go to the second folder named SocialD
+This is the second part of the project. For running the project go to the second folder named Social_Distancing and then execute the following instructions.
 
 ![](/img/result.gif)
 
@@ -53,6 +53,10 @@ You will be asked as inputs :
 - The name of the video (default value PETS2009.avi).
 - The distance (in pixels between 2 persons).
 
-# Outputs
+## Outputs
 Both video outputs (normal frame and bird eye view) will be stored in the outputs file.
 
+# Note
+Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested uising live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the main.py file. The following steps will illustrate the process more clearly:
+
+- 
