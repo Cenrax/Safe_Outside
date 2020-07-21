@@ -1,3 +1,7 @@
+# Note
+Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested uising live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the Social_Distancing/src/social_distanciation_video_detection.py file.
+
+
 # Mask_Detector
 
 This is an tensor-flow and computer vision based model on detection of mask from real-time video stream. Any cctv camera footage can be pipelined to our model and help in mask-classification. This is a part of the project FIGHT-O-MIC smart hospital.
@@ -56,5 +60,3 @@ You will be asked as inputs :
 ## Outputs
 Both video outputs (normal frame and bird eye view) will be stored in the outputs file.
 
-# Note
-Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested uising live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the Social_Distancing/src/social_distanciation_video_detection.py file.
