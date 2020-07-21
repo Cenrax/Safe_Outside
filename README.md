@@ -9,7 +9,7 @@ This folder is focused on detecting whether a person is wearing mask or not. If 
 Apart from that, Sometimes a person opens his/her mouth without his/her sense. This model can also detect that part and it can notify the user through a app named Masky which I have developed along with this project.
 
 ### Running Steps
-Open Spyder or any python editor like sublime3 or Visual Studio code and then run the following codes.
+Open Spyder or any python editor like Sublime3 or Visual Studio code and then run the following codes.
 Run 
 ```bash
 python detect_mask_video.py
@@ -46,7 +46,7 @@ Just download all the models you want to try out, put them in the models folder 
 tar -xvzf faster_rcnn_inception_v2_coco_2018_01_28.tar.gz
 ```
 
-### Calibrate
+#### Calibrate
 Run 
 ```bash
 python calibrate_with_mouse.py
@@ -57,7 +57,7 @@ Note : It is important to start with the top right corner, than the bottom right
 
 You can add any video to the video folder and work with that.
 
-### Start social distancing detection
+#### Start social distancing detection
 Run 
 ```bash
 python social_distanciation_video_detection.py
@@ -66,6 +66,9 @@ You will be asked as inputs :
 - The tensorflow model you want to use (default value faster_rcnn_inception_v2_coco_2018_01_28).
 - The name of the video (default value PETS2009.avi).
 - The distance (in pixels between 2 persons).
+
+The running process can be understood from the following process.
+In this as soon as the social index violence is above the threshold a warning will be sent to the nearby local administration about the social-distancing violence with corresponding latitute and longitude of the position where the CCTV camera is placed.
 
 
 
