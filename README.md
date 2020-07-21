@@ -10,15 +10,11 @@ This is an tensor-flow and computer vision based model on detection of mask from
 
 ## covid-social-distancing-detection
 
-This project is a social distancing detector implemented in Python with OpenCV and Tensorflow.
-The result that can be obtained is the following :
+This is the second part of the project. For running the project go to the second folder named SocialD
 
 ![](/img/result.gif)
 
 # Installation
-
-### OpenCV
-If you are working under a Linux distribution or a MacOS, use this [tutorial](https://www.pyimagesearch.com/2018/09/19/pip-install-opencv/) from Adrian Rosebrock to install this library.
 
 ### Other requirements
 All the other requirements can be installed via the command : 
