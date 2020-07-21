@@ -57,6 +57,4 @@ You will be asked as inputs :
 Both video outputs (normal frame and bird eye view) will be stored in the outputs file.
 
 # Note
-Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested uising live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the main.py file. The following steps will illustrate the process more clearly:
-
-- 
+Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested uising live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the Social_Distancing/src/social_distanciation_video_detection.py file.
