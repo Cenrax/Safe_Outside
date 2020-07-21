@@ -24,7 +24,6 @@ What is happening in the above code can be summarized by the following points:
       - He/She will get a notification " **Cover your mouth** " if his/her mouth is exposed to the atmosphere.
       - He/She will also get a notification **Close your Mouth** his/her mouth is kept opent for a long time.
 
-
 ## Social_Distancing
 
 This is the second part of the project. For running the project go to the second folder named Social_Distancing and then execute the following instructions.
