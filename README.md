@@ -20,18 +20,12 @@ What is happening in the above code can be summarized by the following points:
 - There are two parallel task going one is detecting the whether the person is wearing a mask or not and secondly another task is going whether the person's mouth and nose is exposed to the emvironement directly.
 - As soon as the detection is done to ensure any miscalculation from the model we consider the average of the every 10 seconds and then the result is sent to the cloud i.e Firestore.
 - From firestore there is a direct connection with the user's phone with a push notification system accordingly:
-      - The user will get a notification " \bf (Wear your Mask)" if he/she is not wearing a mask.
-      - He/She will get a notification " Cover your mouth " if his/her mouth is exposed to the atmosphere.
-      - He/She will also get a notification his/her mouth is kept opent for a long time.
+      - The user will get a notification " **Wear your Mask** " if he/she is not wearing a mask.
+      - He/She will get a notification " **Cover your mouth** " if his/her mouth is exposed to the atmosphere.
+      - He/She will also get a notification **Close your Mouth** his/her mouth is kept opent for a long time.
 
 
-
-
-
-
-
-
-## covid-social-distancing-detection
+## Social_Distancing
 
 This is the second part of the project. For running the project go to the second folder named Social_Distancing and then execute the following instructions.
 
