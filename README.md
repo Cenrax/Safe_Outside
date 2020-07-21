@@ -1,5 +1,5 @@
 # Note
-Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested uising live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the Social_Distancing/src/social_distanciation_video_detection.py file.
+Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested using live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the Social_Distancing/src/social_distanciation_video_detection.py file.
 
 
 ## Mask_WithFacial_Checker
@@ -16,13 +16,13 @@ python detect_mask_video.py
 ```
 What is happening in the above code can be summarized by the following points:
 
-- First the model i.e mask_detector.model is loaded and then the live streaming begin
-- There are two parallel task going one is detecting the whether the person is wearing a mask or not and secondly another task is going whether the person's mouth and nose is exposed to the emvironement directly.
+- First the model i.e. mask_detector.model is loaded and then the live streaming begin
+- There are two parallel task going one is detecting the whether the person is wearing a mask or not and secondly another task is going whether the person's mouth and nose is exposed to the environment directly.
 - As soon as the detection is done to ensure any miscalculation from the model we consider the average of the every 10 seconds and then the result is sent to the cloud i.e Firestore.
 - From firestore there is a direct connection with the user's phone with a push notification system accordingly:
       - The user will get a notification " **Wear your Mask** " if he/she is not wearing a mask.
-      - He/She will get a notification " **Cover your mouth** " if his/her mouth is exposed to the atmosphere.
-      - He/She will also get a notification **Close your Mouth** his/her mouth is kept opent for a long time.
+          - He/She will get a notification " **Cover your mouth** " if his/her mouth is exposed to the atmosphere.
+          - He/She will also get a notification **Close your Mouth** his/her mouth is kept opent for a long time.
 
 ## Social_Distancing
 
@@ -68,6 +68,8 @@ You will be asked as inputs :
 
 The running process can be understood from the following process.
 In this as soon as the social index violence is above the threshold a warning will be sent to the nearby local administration about the social-distancing violence with corresponding latitute and longitude of the position where the CCTV camera is placed.
+
+
 
 
 
