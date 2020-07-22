@@ -8,6 +8,8 @@ This folder is focused on detecting whether a person is wearing mask or not. If 
 
 Apart from that, Sometimes a person opens his/her mouth without his/her sense. This model can also detect that part and it can notify the user through a app named Masky which I have developed along with this project.
 
+The last part of the project is the android app which is developed using AndroidStudio and Java.
+
 ### Running Steps
 Open Spyder or any python editor like Sublime3 or Visual Studio code and then run the following codes.
 Run 
