@@ -3,7 +3,9 @@ from tensorflow.keras.preprocessing.image import img_to_array
 from tensorflow.keras.models import load_model
 from imutils.video import VideoStream
 from scipy.spatial import distance as dist
-from imutils.video import VideoStream
+import firebase_admin
+from firebase_admin import credentials
+from firebase_admin import firestore
 from imutils import face_utils
 from threading import Thread
 import numpy as np
@@ -12,11 +14,13 @@ import imutils
 import time
 import cv2
 import os
-import numpy as np
-import argparse
-import imutils
-import time
 import dlib
+
+
+#Initializing the database i.e firefox authentication
+
+
+
 
 def mouth_aspect_ratio(mouth):  #mouth aspect ratio
     A = dist.euclidean(mouth[2], mouth[10]) 
@@ -33,6 +37,28 @@ def nose_aspect_ratio(nose):
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
+db = firestore.client()
+doc_ref = db.collection(u'users').document(u'alovelace')
+user = auth.sign_in_with_email_and_password(email, password) #Email and Password is collected from the database whenever the user registers on the app
+token = user['idToken']
+
+def Firebase_Snippet(mask : float,withoutMask : float,rects,mars: float, token):
+    
+    token = user['idToken']
+    if (withoutMask>mask):
+        doc_ref.set({
+               u'state': u'No_Mask'})
+    if (mask>withoutMask):
+        if(len(rects)>0):
+            doc_ref.set({
+                u'state': u'No_Cover'})
+        else:
+            doc_ref.set({
+                u'state': u'Mask'})
+    if (mars > Threshold):
+            doc_ref.set({
+                u'state': u'Mask_but_openMouth'})
+    return None
 
 def detect_and_predict_mask(frame, faceNet, maskNet):
     (h,w)=frame.shape[:2]
@@ -62,7 +88,7 @@ def detect_and_predict_mask(frame, faceNet, maskNet):
     return (locs,preds)
 ap = argparse.ArgumentParser()
 ap.add_argument("-f", "--face", type=str,default="face_detector",help="path to face detector model directory")
-ap.add_argument("-m", "--model", type=str,default="mask_detector1.model",help="path to trained face mask detector model")
+ap.add_argument("-m", "--model", type=str,default="mask_detector.model",help="path to trained face mask detector model")
 ap.add_argument("-c", "--confidence", type=float, default=0.5,help="minimum probability to filter weak detections")
 args = vars(ap.parse_args())
 print("[INFO] loading face detector model...")
@@ -82,6 +108,7 @@ frame_width = 640
 frame_height =360
 (mStart, mEnd) = (49, 68)
 (nStart, nEnd) = (28,36)
+MOUTH_AR_THRESH = 0.8
 # loop over the frames from the video stream
 while True:
     frame = vs.read()
@@ -90,12 +117,12 @@ while True:
 
     rects = detector(gray, 0)
     (locs, preds) = detect_and_predict_mask(frame, faceNet, maskNet)
-    print(preds)
+    
     for(box,pred) in zip(locs,preds):
         (startX,startY,endX,endY) = box
         (mask, withoutMask) = pred
         
-        if(mask>withoutMask):
+        if(mask<withoutMask):
             label = "Mask"
         else:
             label = " No Mask"
@@ -106,6 +133,7 @@ while True:
         label = "{}: {:.2f}%".format(label, max(mask, withoutMask) * 100)
         cv2.putText(frame, label, (startX, startY - 10),cv2.FONT_HERSHEY_SIMPLEX, 0.45, color, 2)
         cv2.rectangle(frame, (startX, startY), (endX, endY), color, 2)
+        #if(label == "No Mask"):
         for rect in rects:
             shape = predictor(gray, rect)
             shape = face_utils.shape_to_np(shape)
@@ -122,26 +150,19 @@ while True:
             cv2.drawContours(frame, [mouthHull], -1, (255, 0, 0), 1)
             #cv2.putText(frame, "MAR: {:.2f}".format(mar), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
             cv2.drawContours(frame, [noseHull], -1, (255, 0, 0), 1)
+            if mar > MOUTH_AR_THRESH:
+                cv2.putText(frame, "Mouth is Open!", (30,60),cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0,0,255),2)
             #cv2.putText(frame, "MAR: {:.2f}".format(nar), (30, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255),
     cv2.imshow("Frame", frame)
-    key = cv2.waitKey(5) & 0xFF
+    if (counter % 50 == 0):
+        Firebase_Snippet(mask,withoutMask,rects,mars, token)
+        
+    Key(5) & 0xFF
 	# show the output frame
     if key == ord("q"):
         break
-    if ( withoutMask > 2*mask):
-        mail = 1
-    else:
-        mail = 0
-# do a bit of cleanup
-#from firebase import firebase
+   
 
-#firebase = firebase.FirebaseApplication('https://mask-detection-283520.firebaseio.com/', None)
-print(withoutMask)
-print('*',mask)
-#if (mail==1):
- #   firebase.put('/mask-detection-283520/User-S2','Status',True)
-#else:
- #   firebase.put('/mask-detection-283520/User-S2','Status',False)
 cv2.destroyAllWindows()
 vs.stop()
 
