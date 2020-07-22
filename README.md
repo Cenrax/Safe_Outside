@@ -71,6 +71,10 @@ You will be asked as inputs :
 The running process can be understood from the following process.
 In this as soon as the social index violence is above the threshold a warning will be sent to the nearby local administration about the social-distancing violence with corresponding latitute and longitude of the position where the CCTV camera is placed.
 
+## Android Application
+
+The android app has been developed using Android Studio and Java programming language. The app has a simple  UI providing us the notification about the proper put up of mask and as well as the nearby crowded areas near us.
+
 
 
 
