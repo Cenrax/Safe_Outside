@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "807405648310",
+    "firebase_url": "https://mask-detection-283520.firebaseio.com",
+    "project_id": "mask-detection-283520",
+    "storage_bucket": "mask-detection-283520.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:807405648310:android:fb265201b84d462bdde917",
+        "android_client_info": {
+          "package_name": "kundu.masky"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "807405648310-vgvhiucsfl7t0p4jeau4j2qmueolgeh2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "kundu.masky",
+            "certificate_hash": "90a9b8359c92d259707d4f2278a9f793bc3dc4b0"
+          }
+        },
+        {
+          "client_id": "807405648310-6r47bae1m3g4iesjrd4q9f1omqhcoo8u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGK8HmQNvEq-RRKHtlc_9M1RRcDhSvj1U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "807405648310-6r47bae1m3g4iesjrd4q9f1omqhcoo8u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

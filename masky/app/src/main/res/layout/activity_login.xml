@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff"
+    android:orientation="vertical"
+    android:theme="@style/AppTheme.AppBarOverlay">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="MASKY"
+        android:textColorHighlight="@color/colorPrimaryDark"
+        android:fontFamily="sans-serif"
+        android:textStyle="bold"
+        android:textSize="36sp"
+        android:textColor="#034065"
+        android:gravity="center_horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/game"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif"
+        android:gravity="center_horizontal"
+        android:text="Your personalised mask notifier"
+        android:textColor="#077485"
+        android:textColorHighlight="@color/colorPrimaryDark"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/game"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.761"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/game"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:padding="30dp"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.447"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/mask"
+        tools:layout_editor_absoluteX="0dp" />
+
+    <Button
+        android:id="@+id/login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="80dp"
+        android:background="@drawable/custom_button"
+        android:text="LOGIN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.827"
+        tools:layout_editor_absoluteX="80dp" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
