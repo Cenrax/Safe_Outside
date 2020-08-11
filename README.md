@@ -1,5 +1,5 @@
 # Note
-Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested using live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the Social_Distancing/src/social_distanciation_video_detection.py file.
+Due to unavailabilty of live CCTV footages I break the code into two parts. The first part focussed on detection mask along with uncovered mouth and nose. The code was tested using live streaming from the webcam of my computer (which can be compared with the CCTV footages) but for social distancing I did't get any possible opportunity for deploying it live but the live streaming can be done easily by pipelining the CCTV footage with the Social_Distancing/src/social_distanciation_video_detection.py file. The working video can be accessed from the following link: https://drive.google.com/file/d/1Wn1tsz0sE5_Lk6Y9KCKwAA4Sq5TEEPxs/view?usp=sharing
 
 
 ## Mask_WithFacial_Checker
